@@ -829,7 +829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 1568520083}
-  cameraOffset: {x: 0, y: 2, z: 0.2}
+  cameraOffset: {x: 0, y: 2.3, z: 0.2}
   mouseSensitivity: 3.5
   smoothSpeed: 0.1
 --- !u!1001 &32535790
