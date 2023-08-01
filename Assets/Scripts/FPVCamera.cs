@@ -14,7 +14,7 @@ public class FPVCamera : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        currentRotation = playerTransform.eulerAngles; // Используем начальное значение поворота персонажа
+        currentRotation = Vector3.zero;
     }
 
     void LateUpdate()
@@ -27,15 +27,11 @@ public class FPVCamera : MonoBehaviour
         currentRotation.x -= mouseY;
         currentRotation.x = Mathf.Clamp(currentRotation.x, -90f, 90f);
 
-        // Поворачиваем саму камеру вокруг персонажа
-        Quaternion cameraRotation = Quaternion.Euler(currentRotation.x, currentRotation.y, 0f);
-        transform.rotation = cameraRotation;
+        playerTransform.rotation = Quaternion.Euler(0f, currentRotation.y, 0f);
+        transform.localRotation = Quaternion.Euler(currentRotation.x, 0f, 0f);
 
-        // Позиционирование камеры за персонажем (используем TransformPoint для получения глобальных координат)
+        // Позиционирование камеры относительно персонажа
         Vector3 targetPosition = playerTransform.position + playerTransform.TransformDirection(cameraOffset);
         transform.position = Vector3.Lerp(transform.position, targetPosition, smoothSpeed);
-
-        // Поворот персонажа к тому же направлению, что и камера
-        playerTransform.rotation = Quaternion.Euler(0f, currentRotation.y, 0f);
     }
 }
