@@ -11,7 +11,7 @@ public class NoteCounterUI : MonoBehaviour
     private void Start()
     {
         totalNotes = GameObject.FindGameObjectsWithTag("Note").Length;
-        foundNotes = 3;
+        foundNotes = 0;
         UpdateCounter();
     }
 
@@ -23,6 +23,6 @@ public class NoteCounterUI : MonoBehaviour
 
     private void UpdateCounter()
     {
-        counterText.text = " " + foundNotes + " / " + totalNotes;
+        counterText.text = " " + foundNotes + " / 3 " ;
     }
 }
