@@ -2,20 +2,19 @@ using UnityEngine;
 
 public class NoteInteraction : MonoBehaviour
 {
-    public GameObject interactionText; // Ссылка на объект с надписью "нажмите [E] чтобы взять"
+    public GameObject interactionText;
 
-    private bool canInteract; // Флаг, определяющий, может ли игрок взаимодействовать с запиской
+    private bool canInteract;
 
     private void Start()
     {
-        interactionText.SetActive(false); // Скрываем надпись при старте уровня
+        interactionText.SetActive(false);
     }
 
     private void Update()
     {
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
-            // При нажатии на кнопку E подбираем записку
             CollectNote();
         }
     }
@@ -25,7 +24,7 @@ public class NoteInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canInteract = true;
-            interactionText.SetActive(true); // Показываем надпись при наведении на записку
+            interactionText.SetActive(true); 
         }
     }
 
@@ -34,12 +33,19 @@ public class NoteInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canInteract = false;
-            interactionText.SetActive(false); // Скрываем надпись при отведении курсора от записки
+            interactionText.SetActive(false); 
         }
     }
 
     private void CollectNote()
     {
-        // Добавь здесь логику для сбора записки (увеличение счетчика, скрытие записки и т.д.)
+        NoteCounterUI noteCounter = FindObjectOfType<NoteCounterUI>();
+        if (noteCounter != null)
+        {
+            noteCounter.IncrementCounter();
+        }
+
+        interactionText.SetActive(false); 
+        gameObject.SetActive(false);
     }
 }
