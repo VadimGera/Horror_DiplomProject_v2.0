@@ -28513,8 +28513,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionText: {fileID: 946046192}
   noteData:
-    noteText: 
-    noteImage: {fileID: 0}
+    noteText: "\u0428\u041E \u0422\u042B \u0425\u0423\u0419?"
+    noteImage: {fileID: 21300000, guid: 0f3b0080356f5fb42be1c4619daebd8a, type: 3}
 --- !u!1001 &2086154171
 PrefabInstance:
   m_ObjectHideFlags: 0
