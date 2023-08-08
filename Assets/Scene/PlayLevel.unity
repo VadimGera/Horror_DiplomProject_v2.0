@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 555
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9783,7 +9783,7 @@ RectTransform:
   m_GameObject: {fileID: 753671382}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.0075, y: 2.0075, z: 2.0075}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1991940279}
@@ -9791,7 +9791,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 349.83514, y: 214}
+  m_AnchoredPosition: {x: 684, y: 397}
   m_SizeDelta: {x: 117.7152, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &755987854
@@ -12648,6 +12648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 753671383}
+  notesDatas: []
 --- !u!4 &921177443
 Transform:
   m_ObjectHideFlags: 0
@@ -12990,7 +12991,7 @@ RectTransform:
   m_GameObject: {fileID: 946046192}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.41729075, y: 0.41729063, z: 0.41729072}
+  m_LocalScale: {x: 1.0996028, y: 1.0996025, z: 1.0996027}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 669034199}
@@ -17001,6 +17002,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionText: {fileID: 1927487032}
+  noteData:
+    noteText: 
+    noteImage: {fileID: 0}
 --- !u!1 &1264577656
 GameObject:
   m_ObjectHideFlags: 0
@@ -17146,7 +17150,7 @@ RectTransform:
   m_GameObject: {fileID: 1275464341}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.41729072, y: 0.41729072, z: 0.41729072}
+  m_LocalScale: {x: 1.0996027, y: 1.0996027, z: 1.0996027}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1106292124}
@@ -18925,6 +18929,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1413848088}
+  - component: {fileID: 1413848089}
   m_Layer: 0
   m_Name: UIManager
   m_TagString: Untagged
@@ -18947,6 +18952,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1413848089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1413848087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1e33e96b00709b4c913ce3e3177941e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  notePanel: {fileID: 2096605549}
+  noteText: {fileID: 69875933}
+  noteImage: {fileID: 1438531768}
 --- !u!1 &1422602600
 GameObject:
   m_ObjectHideFlags: 0
@@ -19380,6 +19400,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionText: {fileID: 1275464341}
+  noteData:
+    noteText: 
+    noteImage: {fileID: 0}
 --- !u!1001 &1452266905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25569,7 +25592,7 @@ RectTransform:
   m_GameObject: {fileID: 1927487032}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.41729072, y: 0.41729075, z: 0.41729075}
+  m_LocalScale: {x: 1.0996027, y: 1.0996028, z: 1.0996028}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 264614061}
@@ -28357,7 +28380,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2070853350
 Transform:
   m_ObjectHideFlags: 0
@@ -28489,6 +28512,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionText: {fileID: 946046192}
+  noteData:
+    noteText: 
+    noteImage: {fileID: 0}
 --- !u!1001 &2086154171
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -28863,7 +28889,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

@@ -8,9 +8,11 @@ public class NoteCounterUI : MonoBehaviour
     private int totalNotes;
     private int foundNotes;
 
+    public NoteData[] notesDatas;
+
     private void Start()
     {
-        totalNotes = GameObject.FindGameObjectsWithTag("Note").Length;
+        totalNotes = notesDatas.Length;
         foundNotes = 0;
         UpdateCounter();
     }

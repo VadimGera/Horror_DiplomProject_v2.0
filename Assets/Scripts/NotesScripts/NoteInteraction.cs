@@ -3,6 +3,7 @@ using UnityEngine;
 public class NoteInteraction : MonoBehaviour
 {
     public GameObject interactionText;
+    public NoteData noteData;
 
     private bool canInteract;
 
@@ -44,6 +45,9 @@ public class NoteInteraction : MonoBehaviour
         {
             noteCounter.IncrementCounter();
         }
+
+        UIManager.Instance.ShowNoteDetails(noteData);
+
 
         interactionText.SetActive(false); 
         gameObject.SetActive(false);
