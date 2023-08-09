@@ -11,7 +11,6 @@ public class UIManager : MonoBehaviour
     public GameObject notePanel;
     public TextMeshProUGUI noteText;
     public Image noteImage;
-    public TextMeshProUGUI counterText;
 
     private bool startNoteClosed = false;
 
@@ -19,7 +18,7 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
         notePanel.SetActive(false);
-        counterText.gameObject.SetActive(false);
+
     }
 
     public void ShowNoteDetails(NoteData noteData)
@@ -34,11 +33,7 @@ public class UIManager : MonoBehaviour
         notePanel.SetActive(false);
     }
 
-    public void CloseStartNote()
-    {
-        startNoteClosed = true;
-        ShowCounter(); // Показываем счетчик после закрытия начальной записки
-    }
+
 
     private void Update()
     {
@@ -47,14 +42,15 @@ public class UIManager : MonoBehaviour
             HideNoteDetails();
         }
     }
+    public void CloseStartNote()
+    {
+        startNoteClosed = true;
 
+    }
     public bool IsStartNoteClosed()
     {
         return startNoteClosed;
     }
 
-    public void ShowCounter()
-    {
-        counterText.gameObject.SetActive(true);
-    }
+
 }

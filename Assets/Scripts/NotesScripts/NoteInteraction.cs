@@ -5,7 +5,7 @@ public class NoteInteraction : MonoBehaviour
     public GameObject interactionText;
     public NoteData noteData;
     public bool isStartNote = false; // Добавляем переменную для определения начальной записки
-    
+
 
     private bool canInteract;
 
@@ -18,7 +18,7 @@ public class NoteInteraction : MonoBehaviour
             NoteCounterUI noteCounter = FindObjectOfType<NoteCounterUI>();
             if (noteCounter != null)
             {
-                noteCounter.ShowCounter(); // Показываем счетчик после закрытия начальной записки
+                noteCounter.StartNoteClosed();
             }
         }
     }
@@ -36,7 +36,7 @@ public class NoteInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canInteract = true;
-            interactionText.SetActive(true); 
+            interactionText.SetActive(true);
         }
     }
 
@@ -45,7 +45,7 @@ public class NoteInteraction : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canInteract = false;
-            interactionText.SetActive(false); 
+            interactionText.SetActive(false);
         }
     }
 
@@ -57,7 +57,7 @@ public class NoteInteraction : MonoBehaviour
             NoteCounterUI noteCounter = FindObjectOfType<NoteCounterUI>();
             if (noteCounter != null)
             {
-                noteCounter.CloseStartNote(); // Закрываем начальную записку
+                noteCounter.StartNoteClosed();
             }
         }
 
@@ -65,5 +65,15 @@ public class NoteInteraction : MonoBehaviour
 
         interactionText.SetActive(false);
         gameObject.SetActive(false);
+
+        if (!isStartNote)
+        {
+            NoteCounterUI noteCounter = FindObjectOfType<NoteCounterUI>();
+            if (noteCounter != null)
+            {
+                noteCounter.IncrementCounter();
+            }
+        }
     }
+
 }

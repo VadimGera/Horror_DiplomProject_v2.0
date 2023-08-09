@@ -10,7 +10,7 @@ public class NoteCounterUI : MonoBehaviour
     private bool startNoteClosed = false;
 
     public NoteData[] notesDatas;
-    
+
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class NoteCounterUI : MonoBehaviour
         foundNotes = 0;
         counterText.gameObject.SetActive(false);
         UpdateCounter();
-       
+
     }
 
     public void IncrementCounter()
@@ -27,26 +27,19 @@ public class NoteCounterUI : MonoBehaviour
         UpdateCounter();
     }
 
-    public void CloseStartNote()
-    {
-        startNoteClosed = true;
-        ShowCounter(); // Обновляем счетчик после закрытия начальной записки
-    }
-
-        private void UpdateCounter()
-    {
-        if (startNoteClosed)
-        {
-            counterText.text = foundNotes + " / " + (totalNotes - 1);
-        }
-        else
-        {
-            counterText.text = foundNotes + " / " + totalNotes;
-        }
-    }
-    
     public void ShowCounter()
     {
-        counterText.gameObject.SetActive(true); // Показываем счетчик
+        counterText.gameObject.SetActive(true);
+    }
+
+    public void StartNoteClosed()
+    {
+        startNoteClosed = true;
+        ShowCounter(); // Показываем счетчик после закрытия начальной записки
+    }
+
+    private void UpdateCounter()
+    {
+        counterText.text = foundNotes + " / " + totalNotes;
     }
 }
