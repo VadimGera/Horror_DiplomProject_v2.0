@@ -4,12 +4,23 @@ public class NoteInteraction : MonoBehaviour
 {
     public GameObject interactionText;
     public NoteData noteData;
+    public bool isStartNote = false; // Добавляем переменную для определения начальной записки
+    
 
     private bool canInteract;
 
     private void Start()
     {
         interactionText.SetActive(false);
+
+        if (isStartNote && UIManager.Instance.IsStartNoteClosed())
+        {
+            NoteCounterUI noteCounter = FindObjectOfType<NoteCounterUI>();
+            if (noteCounter != null)
+            {
+                noteCounter.ShowCounter(); // Показываем счетчик после закрытия начальной записки
+            }
+        }
     }
 
     private void Update()
@@ -38,18 +49,21 @@ public class NoteInteraction : MonoBehaviour
         }
     }
 
+
     private void CollectNote()
     {
-        NoteCounterUI noteCounter = FindObjectOfType<NoteCounterUI>();
-        if (noteCounter != null)
+        if (isStartNote)
         {
-            noteCounter.IncrementCounter();
+            NoteCounterUI noteCounter = FindObjectOfType<NoteCounterUI>();
+            if (noteCounter != null)
+            {
+                noteCounter.CloseStartNote(); // Закрываем начальную записку
+            }
         }
 
         UIManager.Instance.ShowNoteDetails(noteData);
 
-
-        interactionText.SetActive(false); 
+        interactionText.SetActive(false);
         gameObject.SetActive(false);
     }
 }

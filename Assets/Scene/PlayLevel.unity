@@ -12751,7 +12751,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counterText: {fileID: 753671383}
-  notesDatas: []
+  notesDatas:
+  - noteText: 
+    noteImage: {fileID: 0}
+  - noteText: 
+    noteImage: {fileID: 0}
+  - noteText: 
+    noteImage: {fileID: 0}
 --- !u!4 &921177443
 Transform:
   m_ObjectHideFlags: 0
@@ -17108,6 +17114,7 @@ MonoBehaviour:
   noteData:
     noteText: 
     noteImage: {fileID: 0}
+  isStartNote: 0
 --- !u!1 &1264577656
 GameObject:
   m_ObjectHideFlags: 0
@@ -19070,6 +19077,7 @@ MonoBehaviour:
   notePanel: {fileID: 2096605549}
   noteText: {fileID: 69875933}
   noteImage: {fileID: 1438531768}
+  counterText: {fileID: 753671383}
 --- !u!1 &1422602600
 GameObject:
   m_ObjectHideFlags: 0
@@ -19597,6 +19605,7 @@ MonoBehaviour:
   noteData:
     noteText: 
     noteImage: {fileID: 0}
+  isStartNote: 0
 --- !u!1001 &1452266905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20506,6 +20515,7 @@ MonoBehaviour:
   noteData:
     noteText: 
     noteImage: {fileID: 0}
+  isStartNote: 1
 --- !u!4 &1531286119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 968747101253400239, guid: f3abb4c8db2d07347a280305ae1a5857,
@@ -28873,6 +28883,7 @@ MonoBehaviour:
   noteData:
     noteText: "\u0428\u041E \u0422\u042B \u0425\u0423\u0419?"
     noteImage: {fileID: 21300000, guid: 0f3b0080356f5fb42be1c4619daebd8a, type: 3}
+  isStartNote: 0
 --- !u!1001 &2086154171
 PrefabInstance:
   m_ObjectHideFlags: 0
