@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -18,7 +16,6 @@ public class UIManager : MonoBehaviour
     {
         Instance = this;
         notePanel.SetActive(false);
-
     }
 
     public void ShowNoteDetails(NoteData noteData)

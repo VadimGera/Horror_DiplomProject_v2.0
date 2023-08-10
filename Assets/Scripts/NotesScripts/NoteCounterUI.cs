@@ -1,5 +1,5 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class NoteCounterUI : MonoBehaviour
 {
@@ -35,7 +35,7 @@ public class NoteCounterUI : MonoBehaviour
     public void StartNoteClosed()
     {
         startNoteClosed = true;
-        ShowCounter(); // Показываем счетчик после закрытия начальной записки
+        ShowCounter(); 
     }
 
     private void UpdateCounter()

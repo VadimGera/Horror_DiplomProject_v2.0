@@ -4,7 +4,7 @@ public class NoteInteraction : MonoBehaviour
 {
     public GameObject interactionText;
     public NoteData noteData;
-    public bool isStartNote = false; // Добавляем переменную для определения начальной записки
+    public bool isStartNote = false;
 
 
     private bool canInteract;
