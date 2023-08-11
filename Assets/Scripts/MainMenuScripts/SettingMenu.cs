@@ -125,4 +125,9 @@ public class SettingMenu : MonoBehaviour
         settingPanel.SetActive(false);
         Cursor.visible=false;
     }
+
+    public void ExitMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

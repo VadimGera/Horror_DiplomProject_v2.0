@@ -6850,9 +6850,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1413848090}
         m_TargetAssemblyTypeName: SettingMenu, Assembly-CSharp
-        m_MethodName: CloseSettingPanel
+        m_MethodName: ExitMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -21596,6 +21596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 1814571651}
+  settingsOpen: 0
   volumeSlider: {fileID: 1023222311}
   resolutionDropdown: {fileID: 1392894198}
 --- !u!1 &1422602600
