@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SettingMenu : MonoBehaviour
 {
     public GameObject settingPanel;
+    public bool settingsOpen = false;
 
     public Slider volumeSlider;
     public TMP_Dropdown resolutionDropdown;
@@ -28,23 +30,44 @@ public class SettingMenu : MonoBehaviour
 
     public void Update()
     {
+        if (SceneManager.GetActiveScene().name == "MainMenu")
+        {
+            Cursor.visible = true;
+            return; // Выходим из Update, чтобы не выполнять остальные действия
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ToggleSettingPanel();
+            if (settingsOpen)
+                CloseSettingPanel();
+
+            else
+                ToggleSettingPanel();
         }
-         
+
+        if (settingsOpen)
+            Cursor.lockState = CursorLockMode.None; // Разблокировать курсор
+        else
+            Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     // Метод для открытия панели настроек
     public void ToggleSettingPanel()
     {
         settingPanel.SetActive(true);
+        settingsOpen = true;
+        Cursor.visible = true;
+        
     }
 
     // Метод для закрытия панели настроек без сохранения изменений
     public void CloseSettingPanel()
     {
         settingPanel.SetActive(false);
+        settingsOpen &= false;
+        Cursor.visible = false;
+        
     }
 
     // Метод для обработки изменения громкости
@@ -87,6 +110,7 @@ public class SettingMenu : MonoBehaviour
 
         // Закрываем панель настроек
         settingPanel.SetActive(false);
+        Cursor.visible = false;
     }
 
     // Метод для отмены изменений настроек
@@ -99,5 +123,6 @@ public class SettingMenu : MonoBehaviour
 
         // Закрываем панель настроек
         settingPanel.SetActive(false);
+        Cursor.visible=false;
     }
 }
