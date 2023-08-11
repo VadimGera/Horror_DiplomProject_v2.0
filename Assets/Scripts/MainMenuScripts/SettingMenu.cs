@@ -26,6 +26,15 @@ public class SettingMenu : MonoBehaviour
         resolutionDropdown.RefreshShownValue();
     }
 
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleSettingPanel();
+        }
+         
+    }
+
     // Метод для открытия панели настроек
     public void ToggleSettingPanel()
     {
