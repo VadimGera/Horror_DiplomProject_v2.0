@@ -5,9 +5,12 @@ public class NoteInteraction : MonoBehaviour
     public GameObject interactionText;
     public NoteData noteData;
     public bool isStartNote = false;
+    public bool isLastNote = false;
 
 
     private bool canInteract;
+
+    public CharacterSpawner characterSpawner;
 
     private void Start()
     {
@@ -58,6 +61,15 @@ public class NoteInteraction : MonoBehaviour
             if (noteCounter != null)
             {
                 noteCounter.StartNoteClosed();
+            }
+        }
+
+        if (isLastNote)
+        {
+            CharacterSpawner characterSpawner = FindObjectOfType<CharacterSpawner>();
+            if (characterSpawner != null)
+            {
+                characterSpawner.SpawnCharacter();
             }
         }
 
