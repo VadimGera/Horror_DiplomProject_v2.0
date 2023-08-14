@@ -5,11 +5,15 @@ using UnityEngine;
 
 public class CharacterInteraction : MonoBehaviour
 {
-    public Dialog01 dialog;
+    public string dialogText;
+    public GameObject interactionText; // Префаб текста о взаимодействии
+
+    private bool canInteract = false;
     private DialogManager dialogManager;
 
     private void Start()
     {
+        HideInteractionText();
         dialogManager = FindObjectOfType<DialogManager>();
     }
 
@@ -17,8 +21,8 @@ public class CharacterInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Показываем текст взаимодействия при подходе к персонажу
-            Debug.Log("Trigger entered by player");
+            canInteract = true;
+            ShowInteractionText();
         }
     }
 
@@ -26,19 +30,34 @@ public class CharacterInteraction : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            // Скрываем текст взаимодействия при отдалении от персонажа
+            canInteract = false;
+            HideInteractionText();
         }
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
-            // Начинаем диалог при нажатии клавиши "E"
-            if (dialogManager != null)
-            {
-                dialogManager.ShowDialog(dialog.dialogText);
-            }
+            StartDialog();
+        }
+    }
+
+    private void ShowInteractionText()
+    {
+        interactionText.SetActive(true);
+    }
+
+    private void HideInteractionText()
+    {
+        interactionText.SetActive(false);
+    }
+
+    private void StartDialog()
+    {
+        if (dialogManager != null)
+        {
+            dialogManager.ShowDialog(dialogText);
         }
     }
 }
