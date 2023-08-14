@@ -1,18 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject dialogPrefab;
+    private GameObject currentDialog;
+
+    public void ShowDialog (string dialogText)
     {
-        
+        CloseDialog();
+
+        currentDialog = Instantiate(dialogPrefab, transform);
+
+        TextMeshProUGUI dialogTextField = currentDialog.GetComponentInChildren<TextMeshProUGUI>();
+
+        if (dialogTextField != null )
+        {
+            dialogTextField.text = dialogText;
+        }
+        else
+        {
+            Debug.LogWarning("Dialog text field not found in the dialog prefab");
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CloseDialog()
     {
-        
+        if ( currentDialog != null )
+        {
+
+            currentDialog.SetActive(false);
+        }
     }
 }
