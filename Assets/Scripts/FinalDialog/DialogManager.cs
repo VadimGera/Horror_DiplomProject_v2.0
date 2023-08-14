@@ -30,4 +30,9 @@ public class DialogManager : MonoBehaviour
             Destroy(currentDialogWindow);
         }
     }
+
+    public bool IsDialogOpen()
+    {
+        return currentDialogWindow != null;
+    }
 }
