@@ -20,10 +20,7 @@ public class DialogManager : MonoBehaviour
         {
             dialogTextField.text = dialogText;
         }
-        else
-        {
-            Debug.LogWarning("Dialog text field not found in the dialog window prefab");
-        }
+        
     }
 
     public void CloseDialog()

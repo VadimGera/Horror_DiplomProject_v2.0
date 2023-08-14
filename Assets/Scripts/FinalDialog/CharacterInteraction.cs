@@ -10,6 +10,7 @@ public class CharacterInteraction : MonoBehaviour
 
     private bool canInteract = false;
     private DialogManager dialogManager;
+    private bool isDialogOpen = false; // Добавим флаг для отслеживания состояния диалога
 
     private void Start()
     {
@@ -39,7 +40,15 @@ public class CharacterInteraction : MonoBehaviour
     {
         if (canInteract && Input.GetKeyDown(KeyCode.E))
         {
-            StartDialog();
+            // Открываем или закрываем диалог, в зависимости от его текущего состояния
+            if (!isDialogOpen)
+            {
+                StartDialog();
+            }
+            else
+            {
+                CloseDialog();
+            }
         }
     }
 
@@ -57,7 +66,17 @@ public class CharacterInteraction : MonoBehaviour
     {
         if (dialogManager != null)
         {
+            isDialogOpen = true;
             dialogManager.ShowDialog(dialogText);
+        }
+    }
+
+    private void CloseDialog()
+    {
+        if (dialogManager != null)
+        {
+            isDialogOpen = false;
+            dialogManager.CloseDialog();
         }
     }
 }
