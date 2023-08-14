@@ -5,33 +5,32 @@ using UnityEngine;
 
 public class DialogManager : MonoBehaviour
 {
-    public GameObject dialogPrefab;
-    private GameObject currentDialog;
+    public GameObject dialogWindowPrefab;
+    private GameObject currentDialogWindow;
 
-    public void ShowDialog (string dialogText)
+    public void ShowDialog(string dialogText)
     {
         CloseDialog();
 
-        currentDialog = Instantiate(dialogPrefab, transform);
+        currentDialogWindow = Instantiate(dialogWindowPrefab, transform);
 
-        TextMeshProUGUI dialogTextField = currentDialog.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshProUGUI dialogTextField = currentDialogWindow.GetComponentInChildren<TextMeshProUGUI>();
 
-        if (dialogTextField != null )
+        if (dialogTextField != null)
         {
             dialogTextField.text = dialogText;
         }
         else
         {
-            Debug.LogWarning("Dialog text field not found in the dialog prefab");
+            Debug.LogWarning("Dialog text field not found in the dialog window prefab");
         }
     }
 
     public void CloseDialog()
     {
-        if ( currentDialog != null )
+        if (currentDialogWindow != null)
         {
-
-            currentDialog.SetActive(false);
+            Destroy(currentDialogWindow);
         }
     }
 }
