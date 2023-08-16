@@ -6119,7 +6119,7 @@ GameObject:
   - component: {fileID: 349120270}
   - component: {fileID: 349120269}
   m_Layer: 0
-  m_Name: ParkAudio (1)
+  m_Name: ParkAudio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
