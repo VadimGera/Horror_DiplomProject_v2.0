@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scene/PlayLevel.unity
     guid: 082e86cb3f0cdac4ab164deb2e5480eb
   - enabled: 1
-    path: Assets/Scene/EndGame.unity
+    path: Assets/Scene/EndGameCutScene.unity
     guid: 7bf094abffa2c1f4ea6083e9d051b71a
   m_configObjects: {}

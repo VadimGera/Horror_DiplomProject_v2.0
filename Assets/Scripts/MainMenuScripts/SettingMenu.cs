@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SettingMenu : MonoBehaviour
 {
@@ -18,11 +16,9 @@ public class SettingMenu : MonoBehaviour
 
     private void Start()
     {
-        // Сохраняем оригинальные настройки при открытии панели настроек
         originalVolume = PlayerPrefs.GetFloat("Volume", 0.5f);
         originalResolutionIndex = PlayerPrefs.GetInt("Resolution", 0);
 
-        // Устанавливаем начальные значения
         volumeSlider.value = originalVolume;
         resolutionDropdown.value = originalResolutionIndex;
         resolutionDropdown.RefreshShownValue();
@@ -33,7 +29,7 @@ public class SettingMenu : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
             Cursor.visible = true;
-            return; // Выходим из Update, чтобы не выполнять остальные действия
+            return; 
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -46,43 +42,38 @@ public class SettingMenu : MonoBehaviour
         }
 
         if (settingsOpen)
-            Cursor.lockState = CursorLockMode.None; // Разблокировать курсор
+            Cursor.lockState = CursorLockMode.None;
         else
             Cursor.lockState = CursorLockMode.Locked;
 
     }
 
-    // Метод для открытия панели настроек
     public void ToggleSettingPanel()
     {
         settingPanel.SetActive(true);
         settingsOpen = true;
         Cursor.visible = true;
-        
+
     }
 
-    // Метод для закрытия панели настроек без сохранения изменений
     public void CloseSettingPanel()
     {
         settingPanel.SetActive(false);
         settingsOpen &= false;
         Cursor.visible = false;
-        
+
     }
 
-    // Метод для обработки изменения громкости
     public void OnVolumeChanged()
     {
         float volume = volumeSlider.value;
         AudioListener.volume = volume;
     }
 
-    // Метод для обработки изменения разрешения
     public void OnResolutionChanged()
     {
         int selectedIndex = resolutionDropdown.value;
-        // Реализуйте здесь логику для изменения разрешения экрана
-        // Пример:
+        
         if (selectedIndex == 0)
         {
             Screen.SetResolution(1920, 1080, true);
@@ -92,38 +83,31 @@ public class SettingMenu : MonoBehaviour
             Screen.SetResolution(1280, 720, true);
         }
 
-        // Сохраняем индекс разрешения в настройках
         PlayerPrefs.SetInt("Resolution", selectedIndex);
         PlayerPrefs.Save();
     }
 
-    // Метод для сохранения настроек
     public void SaveSettings()
     {
         float volume = volumeSlider.value;
         int resolutionIndex = resolutionDropdown.value;
 
-        // Сохраняем настройки
         PlayerPrefs.SetFloat("Volume", volume);
         PlayerPrefs.SetInt("Resolution", resolutionIndex);
         PlayerPrefs.Save();
 
-        // Закрываем панель настроек
         settingPanel.SetActive(false);
         Cursor.visible = false;
     }
 
-    // Метод для отмены изменений настроек
     public void CancelSettings()
     {
-        // Восстанавливаем оригинальные настройки
         volumeSlider.value = originalVolume;
         resolutionDropdown.value = originalResolutionIndex;
         resolutionDropdown.RefreshShownValue();
 
-        // Закрываем панель настроек
         settingPanel.SetActive(false);
-        Cursor.visible=false;
+        Cursor.visible = false;
     }
 
     public void ExitMainMenu()

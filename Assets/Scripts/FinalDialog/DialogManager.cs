@@ -19,7 +19,7 @@ public class DialogManager : MonoBehaviour
         {
             dialogTextField.text = dialogText;
         }
-        
+
     }
 
     public void CloseDialog()
@@ -32,7 +32,7 @@ public class DialogManager : MonoBehaviour
 
     public void OnDialogFinished()
     {
-        SceneManager.LoadSceneAsync("EndGame");
+        SceneManager.LoadSceneAsync("EndGameCutScene");
     }
 
     public bool IsDialogOpen()

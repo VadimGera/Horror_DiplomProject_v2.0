@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
@@ -8,9 +6,9 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject characterPrefab;
     public GameObject spawnPoint;
 
-    private bool spawned = false;   
+    private bool spawned = false;
 
-    
+
 
     public void SpawnCharacter()
     {

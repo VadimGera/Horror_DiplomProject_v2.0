@@ -35,7 +35,7 @@ public class NoteCounterUI : MonoBehaviour
     public void StartNoteClosed()
     {
         startNoteClosed = true;
-        ShowCounter(); 
+        ShowCounter();
     }
 
     private void UpdateCounter()

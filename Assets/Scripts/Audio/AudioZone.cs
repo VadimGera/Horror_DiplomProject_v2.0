@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundZoneTrigger : MonoBehaviour
 {
-    public AudioSource soundSource; // —сылка на аудио источник
+    public AudioSource soundSource;
     private bool isInsideZone = false;
 
     private void OnTriggerEnter(Collider other)
