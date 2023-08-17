@@ -112,6 +112,6 @@ public class SettingMenu : MonoBehaviour
 
     public void ExitMainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 }
