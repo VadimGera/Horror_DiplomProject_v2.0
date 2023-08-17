@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class CharacterInteraction : MonoBehaviour
 {
-    public List<string> dialogSteps; // Список шагов диалога
+    public List<string> dialogSteps;
     public GameObject interactionText;
 
     private bool canInteract = false;
     private DialogManager dialogManager;
     private bool isDialogOpen = false;
-    private int currentStep = 0; // Текущий шаг диалога
+    private int currentStep = 0;
 
     private void Start()
     {
@@ -49,14 +49,13 @@ public class CharacterInteraction : MonoBehaviour
             {
                 if (currentStep < dialogSteps.Count - 1)
                 {
-                    // Перейти к следующему шагу диалога
                     currentStep++;
                     dialogManager.ShowDialog(dialogSteps[currentStep]);
                 }
                 else
                 {
-                    // Закрыть диалог, если это последний шаг
                     CloseDialog();
+                    dialogManager.OnDialogFinished();
                 }
             }
         }
@@ -87,7 +86,7 @@ public class CharacterInteraction : MonoBehaviour
         {
             isDialogOpen = false;
             dialogManager.CloseDialog();
-            currentStep = 0; // Сбросить текущий шаг при закрытии диалога
+            currentStep = 0;
         }
     }
 }

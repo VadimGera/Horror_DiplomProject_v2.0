@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DialogManager : MonoBehaviour
 {
@@ -29,6 +28,11 @@ public class DialogManager : MonoBehaviour
         {
             Destroy(currentDialogWindow);
         }
+    }
+
+    public void OnDialogFinished()
+    {
+        SceneManager.LoadSceneAsync("EndGame");
     }
 
     public bool IsDialogOpen()
