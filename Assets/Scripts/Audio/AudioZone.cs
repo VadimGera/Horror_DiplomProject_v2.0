@@ -1,9 +1,19 @@
+using System;
 using UnityEngine;
 
 public class SoundZoneTrigger : MonoBehaviour
 {
     public AudioSource soundSource;
     private bool isInsideZone = false;
+
+    private void Awake()
+    {
+        if (soundSource == null)
+        {
+            //проверка чтобы не париться в рантайме
+            throw new NullReferenceException("Sound source is null");
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {

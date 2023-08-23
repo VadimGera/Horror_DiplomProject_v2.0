@@ -40,6 +40,6 @@ public class NoteCounterUI : MonoBehaviour
 
     private void UpdateCounter()
     {
-        counterText.text = foundNotes + " / " + totalNotes;
+        counterText.text = foundNotes + " / " + totalNotes;//можно использовать интерполяцию
     }
 }
