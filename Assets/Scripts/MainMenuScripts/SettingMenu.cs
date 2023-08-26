@@ -76,7 +76,7 @@ public class SettingMenu : MonoBehaviour
         
         if (selectedIndex == 0)
         {
-            Screen.SetResolution(1920, 1080, true);
+            Screen.SetResolution(1920, 1080, true);//хардкод, вынести в конфиг
         }
         else if (selectedIndex == 1)
         {
